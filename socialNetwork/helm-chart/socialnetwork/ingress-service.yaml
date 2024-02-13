@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: social-network-ingress
+  labels:
+    name: social-network-ingress
+spec:
+  rules:
+    - host: social-network.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-thrift
+                port:
+                  number: 8080
+          - path: /media-frontned
+            pathType: Prefix
+            backend:
+              service:
+                name: media-frontend
+                port:
+                  number: 8081
