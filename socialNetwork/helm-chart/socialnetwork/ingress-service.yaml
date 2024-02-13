@@ -4,6 +4,10 @@ metadata:
   name: social-network-ingress
   labels:
     name: social-network-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
 spec:
   rules:
     - host: social-network.com
@@ -16,7 +20,7 @@ spec:
                 name: nginx-thrift
                 port:
                   number: 8080
-          - path: /media-frontned
+          - path: /media-frontend
             pathType: Prefix
             backend:
               service:
