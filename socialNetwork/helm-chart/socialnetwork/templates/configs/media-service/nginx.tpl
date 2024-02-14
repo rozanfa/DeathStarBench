@@ -62,7 +62,7 @@ http {
 
     # Checklist: Make sure that the location here is consistent
     # with the location you specified in wrk2.
-    location /upload-media {
+    location /media-frontend/upload-media {
           if ($request_method = 'OPTIONS') {
             add_header 'Access-Control-Allow-Origin' '*';
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
@@ -92,7 +92,7 @@ http {
 
     # Checklist: Make sure that the location here is consistent
     # with the location you specified in wrk2.
-    location /get-media {
+    location /media-frontend/get-media {
           if ($request_method = 'OPTIONS') {
             add_header 'Access-Control-Allow-Origin' '*';
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
